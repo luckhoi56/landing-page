@@ -15,9 +15,10 @@
 
 /**
  * Define Global Variables
+ *
  * 
 */
-
+var fragment = document.createDocumentFragment();
 
 /**
  * End Global Variables
@@ -34,7 +35,19 @@
 */
 
 // build the nav
+function navBuild(){
+    var fragment = document.createDocumentFragment();
 
+    const navBar = document.querySelector('#navbar__list');
+    for(let i = 1; i <=3; i++){
+        let m_dom = document.createElement('li')
+        let m_string = `<a class ="section_${i}" href="#section${i}">Section ${i}</a>`;
+        m_dom.innerHTML=m_string;
+        fragment.appendChild(m_dom);
+    }
+    navBar.appendChild(fragment);
+   
+}
 
 // Add class 'active' to section when near top of viewport
 
@@ -54,3 +67,4 @@
 
 // Set sections as active
 
+navBuild();
