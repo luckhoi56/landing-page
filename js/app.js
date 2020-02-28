@@ -40,7 +40,7 @@ function navBuild(){
     var fragment = document.createDocumentFragment();
 
     const navBar = document.querySelector('#navbar__list');
-    for(let i = 3; i >= 3; i--){
+    for(let i = 3; i >= 1; i--){
         let m_dom = document.createElement('li')
         let m_string = `<a class ="section_${i}" href="#section${i}">Section ${i}</a>`;
         m_dom.innerHTML=m_string;
