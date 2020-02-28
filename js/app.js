@@ -19,8 +19,12 @@
  * 
 */
 var fragment = document.createDocumentFragment();
-
-
+var p_section_1 = document.getElementById("section1");
+var p_section_2 = document.getElementById("section2");
+var p_section_3 = document.getElementById("section3");
+var section_1 ;
+var section_2 ;
+var section_3 ;
 /**
  * End Global Variables
  * Start Helper Functions
@@ -51,6 +55,7 @@ function navBuild(){
 }
 
 // Add class 'active' to section when near top of viewport
+window.onscroll = function(){add_active()};
 
 // Scroll to anchor ID using scrollTO event
 
@@ -63,33 +68,47 @@ function navBuild(){
 
 // Build menu 
 navBuild();
-window.onscroll = function(){add_active()};
+section_1 = document.getElementsByClassName("section_1")[0];
+section_2 = document.getElementsByClassName("section_2")[0];
+section_3 = document.getElementsByClassName("section_3")[0];
 
 // Scroll to section on link click
 
 // Set sections as active
 
-function initiate_variable(){
-   
+function add_background_effect(m_element){
+   m_element.classList.add("your-active-class");
 
 }
+function remove_background_effect(m_element){
+    m_element.classList.remove("your-active-class");
+}
 function add_active(){
-    let section1 = document.getElementsByClassName("section_1")[0];
-    let section2 = document.getElementsByClassName("section_2")[0];
-    let section3 = document.getElementsByClassName("section_3")[0];
-    if (window.scrollY >=471 && window.scrollY <800){
-        section1.style.backgroundColor ="green";
-        section2.style.backgroundColor ="transparent";
-        section3.style.backgroundColor ="transparent";
+
+    if (window.scrollY >=200 && window.scrollY <700){
+        add_background_effect(p_section_1);
+        section_1.style.backgroundColor ="green";
+        section_2.style.backgroundColor ="transparent";
+        section_3.style.backgroundColor ="transparent";
     }
-    else if (window.scrollY >=1042 && window.scrollY <1500){
-        section1.style.backgroundColor ="transparent";
-        section2.style.backgroundColor ="green";
-        section3.style.backgroundColor ="transparent";
+    else if (window.scrollY >=900 && window.scrollY <1400){
+        add_background_effect(p_section_2);
+        section_1.style.backgroundColor ="transparent";
+        section_2.style.backgroundColor ="green";
+        section_3.style.backgroundColor ="transparent";
     }
-    else if (window.scrollY >=1700){
-        section1.style.backgroundColor ="transparent";
-        section2.style.backgroundColor ="transparent";
-        section3.style.backgroundColor ="green";
+    else if (window.scrollY >=1600){
+        add_background_effect(p_section_3);
+        section_1.style.backgroundColor ="transparent";
+        section_2.style.backgroundColor ="transparent";
+        section_3.style.backgroundColor ="green";
+    }
+    else{
+        remove_background_effect(p_section_1);
+        remove_background_effect(p_section_2);
+        remove_background_effect(p_section_3);
+        section_1.style.backgroundColor ="transparent";
+        section_2.style.backgroundColor ="transparent";
+        section_3.style.backgroundColor ="transparent";
     }
 }
